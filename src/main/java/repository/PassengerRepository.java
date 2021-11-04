@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class PassengerRepository  implements Repository<Passenger> {
+public class PassengerRepository implements Repository<Passenger> {
 
     public List<Passenger> passengers;
 

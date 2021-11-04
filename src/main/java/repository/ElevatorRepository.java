@@ -4,7 +4,6 @@ import entity.Elevator;
 import interfaces.Repository;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ElevatorRepository implements Repository<Elevator> {

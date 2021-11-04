@@ -23,7 +23,7 @@ public class DriveUnit implements RunEngine {
 
     @Override
     public void run() {
-        System.out.println("CONSOLE LEGEND:\nAP -> Add passenger\nAE -> add elevator\n");
+        System.out.println("CONSOLE LEGEND(2-letters operations):\nAP -> Add passenger\nAE -> Add elevator\nST -> Stop\n");
         while (true) {
             String result = null;
 
@@ -57,7 +57,7 @@ public class DriveUnit implements RunEngine {
     }
 
     private String processInput() throws IOException {
-        System.out.println("Please enter 2 letter operation.(see the console legend for more information)");
+        System.out.println("Please enter 2-letter operation.(See the console legend for more information)");
 
         String input = this.reader.readLine();
 
@@ -71,9 +71,12 @@ public class DriveUnit implements RunEngine {
                 result = addPassenger(data);
                 break;
             case AE:
-                System.out.println("Please, write id of elevator " );
+                System.out.println("Please, write id of elevator ");
                 data = parseCommand();
                 result = addElevator(data);
+                break;
+            case ST:
+                result = "Exit";
                 break;
         }
         return result;

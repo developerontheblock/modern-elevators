@@ -1,5 +1,6 @@
 package entity;
 
+import interfaces.ElevatorDirection;
 import lombok.Data;
 
 import java.util.ArrayList;

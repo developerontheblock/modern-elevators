@@ -6,7 +6,6 @@ import interfaces.Actions;
 import repository.ElevatorRepository;
 import repository.PassengerRepository;
 
-import java.util.List;
 
 public class BaseController implements Actions {
 
@@ -19,7 +18,7 @@ public class BaseController implements Actions {
     }
 
     @Override
-    public String addPassenger(Passenger passenger){
+    public String addPassenger(Passenger passenger) {
         this.passengerRepository.add(passenger);
         return "Successfull " + passenger.getName();
     }
@@ -39,7 +38,6 @@ public class BaseController implements Actions {
 
         return result.toString();
     }
-
 
 
 }
