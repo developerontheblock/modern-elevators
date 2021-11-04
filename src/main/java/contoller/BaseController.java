@@ -16,7 +16,7 @@ public class BaseController implements Actions {
     }
 
     @Override
-    public String add(Passenger passenger){
+    public String addPassenger(Passenger passenger){
         this.passengerRepository.addPassenger(passenger);
         return "Successfull " + passenger.getName();
     }
