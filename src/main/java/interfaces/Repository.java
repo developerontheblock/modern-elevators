@@ -4,5 +4,6 @@ package interfaces;
 public interface Repository<T> {
 
     // TODO: base interface
-    void addPassenger(T model);
+    void add(T model);
+    T find(T data);
 }
