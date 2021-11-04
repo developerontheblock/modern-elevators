@@ -38,6 +38,32 @@ public class BaseController implements Actions {
 
         return result.toString();
     }
+    @Override
+    public String moveElevator(String position, Integer elevatorId) {
+        // to concatenate a large number of strings
+        StringBuilder result = new StringBuilder();
+        Elevator elevator = elevatorRepository.find(new Elevator(elevatorId));
 
+        if (elevator == null) {
+            return "There is no elevator with this id.";
+        }
 
+        switch (position.toLowerCase()) {
+            case "up":
+                elevator.moveUp();
+                break;
+            case "down":
+                if (elevator.getCurrentFloor() - 1 <= 0) {
+                    result.append("There is no floor under floor 1. ");
+                } else {
+                    elevator.moveDown();
+                }
+                break;
+            default:
+                return "Please, enter the correct destination goal!";
+        }
+        result.append(String.format("Elevator with id: %d is on %d floor now",
+                elevator.getId(), elevator.getCurrentFloor())).append(System.lineSeparator());
+        return result.toString();
+    }
 }

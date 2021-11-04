@@ -26,6 +26,7 @@ public class DriveUnitController implements RunEngine {
         System.out.println("CONSOLE LEGEND(2-letters operations):\n" +
                 "AP -> Add passenger\n" +
                 "AE -> Add elevator\n" +
+                "ME -> Move elevator\n" +
                 "ST -> Stop\n");
         while (true) {
             String result = null;
@@ -39,9 +40,7 @@ public class DriveUnitController implements RunEngine {
             if (result != null && result.equals("Exit")) {
                 break;
             }
-
             System.out.println(result);
-            System.out.println("~~~~~~~");
         }
     }
 
@@ -58,6 +57,10 @@ public class DriveUnitController implements RunEngine {
     private String addPassenger(String[] data) {
         return action.addPassenger(new Passenger(data[0], Integer.parseInt(data[1]),
                 Integer.parseInt(data[2]), Integer.parseInt(data[3])));
+    }
+
+    private String moveElevator(String[] data) {
+        return action.moveElevator(data[0], Integer.parseInt(data[1]));
     }
 
     private String processInput() throws IOException {
@@ -80,6 +83,11 @@ public class DriveUnitController implements RunEngine {
                         "current floor, and max weight of elevator(separated with white space)");
                 data = parseCommand();
                 result = addElevator(data);
+                break;
+            case ME:
+                System.out.println("Enter position to move(up or down) and id of elevator(separated with white space)");
+                data = parseCommand();
+                result = moveElevator(data);
                 break;
             case ST:
                 result = "Exit";

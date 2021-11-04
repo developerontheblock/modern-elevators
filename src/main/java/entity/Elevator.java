@@ -14,6 +14,10 @@ public class Elevator implements ElevatorDirection {
     public int currentFloor;
     public int currentWeight;
     public int maxWeight;
+//  public int speed;
+//  public double temperature;
+//  public int buttons;
+
 
     public Elevator(int id, int currentFloor, int maxWeight) {
         this.id = id;
