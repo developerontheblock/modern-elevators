@@ -20,7 +20,7 @@ public class BaseController implements Actions {
     @Override
     public String addPassenger(Passenger passenger) {
         this.passengerRepository.add(passenger);
-        return "Successfull " + passenger.getName();
+        return "Successful added passenger with name: " + passenger.getName();
     }
 
     @Override
@@ -30,11 +30,11 @@ public class BaseController implements Actions {
         Elevator elevatorToCheck = elevatorRepository.find(new Elevator(elevator.getId()));
 
         if (elevatorToCheck != null) {
-            return String.format("Already exist elevator with id: %d. ", elevator.getId());
+            return String.format("Already exist elevator with id: %d ", elevator.getId());
         }
 
         this.elevatorRepository.add(elevator);
-        result.append(String.format("Successful added elevator with id: %d. ", elevator.getId()));
+        result.append(String.format("Successful added elevator with id: %d ", elevator.getId()));
 
         return result.toString();
     }

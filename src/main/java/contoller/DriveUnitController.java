@@ -10,20 +10,23 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class DriveUnit implements RunEngine {
+public class DriveUnitController implements RunEngine {
 
     private Actions action;
     // used to read the stream of characters from the specified source (character-input stream)
     private BufferedReader reader;
 
-    public DriveUnit() {
+    public DriveUnitController() {
         this.action = new BaseController();
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
     @Override
     public void run() {
-        System.out.println("CONSOLE LEGEND(2-letters operations):\nAP -> Add passenger\nAE -> Add elevator\nST -> Stop\n");
+        System.out.println("CONSOLE LEGEND(2-letters operations):\n" +
+                "AP -> Add passenger\n" +
+                "AE -> Add elevator\n" +
+                "ST -> Stop\n");
         while (true) {
             String result = null;
 
@@ -43,6 +46,7 @@ public class DriveUnit implements RunEngine {
     }
 
     private String[] parseCommand() throws IOException {
+        // the regex '\s+' will match one or more whitespace characters
         return reader.readLine().split("\\s+");
     }
 
@@ -57,7 +61,7 @@ public class DriveUnit implements RunEngine {
     }
 
     private String processInput() throws IOException {
-        System.out.println("Please enter 2-letter operation.(See the console legend for more information)");
+        System.out.println("Please, enter 2-letter operation.(See the console legend for more information)");
 
         String input = this.reader.readLine();
 
@@ -66,12 +70,14 @@ public class DriveUnit implements RunEngine {
 
         switch (operation) {
             case AP:
-                System.out.println("Please, write name of passenger ");
+                System.out.println("Enter name of passenger, " +
+                        "passenger's current floor,passenger's target floor and weight of passenger(separated with white space)");
                 String[] data = parseCommand();
                 result = addPassenger(data);
                 break;
             case AE:
-                System.out.println("Please, write id of elevator ");
+                System.out.println("Enter id of elevator, " +
+                        "current floor, and max weight of elevator(separated with white space)");
                 data = parseCommand();
                 result = addElevator(data);
                 break;

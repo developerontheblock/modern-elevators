@@ -1,6 +1,6 @@
 package com.modern.elevators.ModernElevators;
 
-import contoller.DriveUnit;
+import contoller.DriveUnitController;
 import interfaces.RunEngine;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ModernElevatorsApplication {
 
     public static void main(String[] args) {
-        RunEngine engine = new DriveUnit();
+        RunEngine engine = new DriveUnitController();
         engine.run();
     }
 }
