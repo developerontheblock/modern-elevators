@@ -12,4 +12,6 @@ public interface Actions {
 
     String moveElevator(String position, Integer elevatorId);
 
+    String makeRequest(String name);
+
 }

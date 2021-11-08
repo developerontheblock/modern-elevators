@@ -16,4 +16,9 @@ public class Passenger {
         this.targetFloor = targetFloor;
         this.weight = weight;
     }
+
+    public Passenger(String name) {
+        this.name = name;
+    }
+
 }

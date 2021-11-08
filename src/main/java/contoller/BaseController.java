@@ -6,6 +6,8 @@ import interfaces.Actions;
 import repository.ElevatorRepository;
 import repository.PassengerRepository;
 
+import java.util.List;
+
 
 public class BaseController implements Actions {
 
@@ -66,4 +68,25 @@ public class BaseController implements Actions {
                 elevator.getId(), elevator.getCurrentFloor())).append(System.lineSeparator());
         return result.toString();
     }
+
+    @Override
+    public String makeRequest(String name) {
+
+        StringBuilder result = new StringBuilder();
+
+        Passenger passenger = passengerRepository.find(new Passenger(name));
+        if (passenger == null) {
+            return "There is no passenger with that name.";
+        }
+        result.append(String.format("Passenger with name %s successfully make request to elevator system. ",
+                passenger.getName()));
+
+        List<Elevator> elevators = this.elevatorRepository.getElevators();
+        if (elevators.isEmpty()) {
+            result.append("No added elevators, please add elevator to make the request. ");
+        }
+        
+        return result.toString();
+    }
+
 }

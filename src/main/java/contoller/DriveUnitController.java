@@ -27,6 +27,7 @@ public class DriveUnitController implements RunEngine {
                 "AP -> Add passenger\n" +
                 "AE -> Add elevator\n" +
                 "ME -> Move elevator\n" +
+                "MR -> Make request\n" +
                 "ST -> Stop\n");
         while (true) {
             String result = null;
@@ -63,6 +64,10 @@ public class DriveUnitController implements RunEngine {
         return action.moveElevator(data[0], Integer.parseInt(data[1]));
     }
 
+    private String makeRequest(String[] data) {
+        return action.makeRequest(data[0]);
+    }
+
     private String processInput() throws IOException {
         System.out.println("Please, enter 2-letter operation.(See the console legend for more information)");
 
@@ -88,6 +93,11 @@ public class DriveUnitController implements RunEngine {
                 System.out.println("Enter position to move(up or down) and id of elevator(separated with white space)");
                 data = parseCommand();
                 result = moveElevator(data);
+                break;
+            case MR:
+                System.out.println("Now please write name of passenger who want to take elevator.");
+                data = parseCommand();
+                result = makeRequest(data);
                 break;
             case ST:
                 result = "Exit";

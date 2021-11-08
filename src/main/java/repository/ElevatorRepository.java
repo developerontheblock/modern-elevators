@@ -4,6 +4,7 @@ import entity.Elevator;
 import interfaces.Repository;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ElevatorRepository implements Repository<Elevator> {
@@ -12,6 +13,10 @@ public class ElevatorRepository implements Repository<Elevator> {
 
     public ElevatorRepository() {
         this.elevators = new ArrayList<>();
+    }
+
+    public List<Elevator> getElevators() {
+        return Collections.unmodifiableList(this.elevators);
     }
 
     @Override
