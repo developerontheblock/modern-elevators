@@ -15,7 +15,7 @@ public class ModernElevatorsTest {
     @Before
     public void setUp() {
         elevator = new Elevator(1, 1, 100);
-        passenger = new Passenger("Naiden", 1, 3, 82);
+        passenger = new Passenger("Alex", 1, 3, 60);
         controller = new BaseController();
     }
 
@@ -40,7 +40,7 @@ public class ModernElevatorsTest {
 
     @Test
     public void testMakeRequestWithNoPassengers() {
-        String makeRequest = controller.makeRequest("Ivan");
+        String makeRequest = controller.makeRequest("Alex");
         assertEquals("There is no passenger with that name.", makeRequest);
     }
 
