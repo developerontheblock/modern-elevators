@@ -1,8 +1,5 @@
 package entity;
 
-import lombok.Data;
-
-@Data
 public class Passenger {
 
     public String name;
@@ -21,4 +18,35 @@ public class Passenger {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCurrentFloor() {
+        return currentFloor;
+    }
+
+    public void setCurrentFloor(int currentFloor) {
+        this.currentFloor = currentFloor;
+    }
+
+    public int getTargetFloor() {
+        return targetFloor;
+    }
+
+    public void setTargetFloor(int targetFloor) {
+        this.targetFloor = targetFloor;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 }
